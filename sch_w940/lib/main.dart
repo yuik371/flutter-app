@@ -184,20 +184,100 @@ class _SkyPainter extends CustomPainter {
   bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
 
+// 바로가기 아이콘 
 class _NateTodayIcon extends StatelessWidget {
-  const _NateTodayIcon({required this.s});
   final double s;
-
+  const _NateTodayIcon({required this.s});
+ 
   @override
-  Widget build(BuildContext context) => _HomeIcon(s: s, icon: Icons.today, label: 'Today');
+  Widget build(BuildContext context) {
+    return Transform.rotate(
+      angle: -0.12,
+      child: Container(
+        width: 78 * s,
+        height: 64 * s,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(4 * s),
+          boxShadow: const [BoxShadow(color: Colors.black38, blurRadius: 4)],
+        ),
+        child: Column(
+          children: [
+            Expanded(
+              child: Center(
+                child: Text(
+                  'NATE',
+                  style: TextStyle(
+                    color: const Color(0xFFE5322D),
+                    fontSize: 24 * s,
+                    fontWeight: FontWeight.w900,
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              height: 20 * s,
+              margin: EdgeInsets.fromLTRB(4 * s, 0, 4 * s, 4 * s),
+              color: const Color(0xFFFF7A1A),
+              alignment: Alignment.center,
+              child: Text(
+                'TODAY',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 13 * s,
+                  fontWeight: FontWeight.w900,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
 
+// 바로가기 아이콘
 class _WebSurfingIcon extends StatelessWidget {
-  const _WebSurfingIcon({required this.s});
   final double s;
-
+  const _WebSurfingIcon({required this.s});
+ 
   @override
-  Widget build(BuildContext context) => _HomeIcon(s: s, icon: Icons.language, label: 'Web');
+  Widget build(BuildContext context) {
+    return Container(
+      width: 76 * s,
+      height: 78 * s,
+      decoration: BoxDecoration(
+        color: const Color(0xFF111111),
+        borderRadius: BorderRadius.circular(14 * s),
+        border: Border.all(color: const Color(0xFF444444), width: 1.5),
+        boxShadow: const [BoxShadow(color: Colors.black45, blurRadius: 4)],
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'W',
+            style: TextStyle(
+              color: const Color(0xFF33B5FF),
+              fontSize: 40 * s,
+              fontWeight: FontWeight.w900,
+              height: 1,
+            ),
+          ),
+          SizedBox(height: 2 * s),
+          Text(
+            'web surfing',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 11 * s,
+              fontWeight: FontWeight.w800,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class _MailIcon extends StatelessWidget {
